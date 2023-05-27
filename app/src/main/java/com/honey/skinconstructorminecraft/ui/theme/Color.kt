@@ -2,6 +2,12 @@ package com.honey.skinconstructorminecraft.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+internal val Gray50 = Color(0xFF6C6C6C)
+internal val Gray40 = Color(0xFF585659)
+internal val Gray30 = Color(0xFF48494B)
+internal val Gray20 = Color(0xFF313234)
+internal val Gray10 = Color(0xFF212121)
+
 internal val Blue10 = Color(0xFF001F28)
 internal val Blue20 = Color(0xFF003544)
 internal val Blue30 = Color(0xFF004D61)
