@@ -44,6 +44,13 @@ android {
     packagingOptions {
         exclude("META-INF/gradle/incremental.annotation.processors")
     }
+
+    configurations {
+        create("cleanedAnnotations")
+        implementation {
+            exclude(group = "com.intellij", module = "annotations")
+        }
+    }
 }
 
 dependencies {

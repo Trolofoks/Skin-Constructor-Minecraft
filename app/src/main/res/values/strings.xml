@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Skin Constructor Minecraft</string>
+
+    <string name="constructor">Constructor</string>
 </resources>
