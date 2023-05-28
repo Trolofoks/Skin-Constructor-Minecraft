@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.honey.skinconstructorminecraft.ui.screen.constructor.contract.ConstructorEvent
 import com.honey.skinconstructorminecraft.ui.screen.constructor.contract.ConstructorState
+import com.honey.skinconstructorminecraft.ui.screen.constructor.view.ConstructorMainView
 
 @Composable
 fun ConstructorScreen(
@@ -20,13 +21,18 @@ fun ConstructorScreen(
     onEventSend : (event : ConstructorEvent) -> Unit,
     onTestClick : () -> Unit
 ) {
-    Column(verticalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxSize().padding(32.dp)) {
-        Text(text = "Hello, it's constructor. State -> ${state.value}")
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = "Go Back")
-        }
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = "Navigate Back")
+    when(val state = state.value){
+        is ConstructorState.Loading -> {}
+        is ConstructorState.Showing -> {
+            ConstructorMainView(
+                state = state,
+                onSelectCategory = {category->
+                    onEventSend.invoke(ConstructorEvent.SelectCategory(category))
+                },
+                onSelectItem = {item->
+                    onEventSend.invoke(ConstructorEvent.SelectItem(item))
+                }
+            )
         }
     }
 }
