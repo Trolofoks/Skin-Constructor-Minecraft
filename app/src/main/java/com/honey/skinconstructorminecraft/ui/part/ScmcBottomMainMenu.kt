@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,13 +14,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.honey.skinconstructorminecraft.data.Category
-import com.honey.skinconstructorminecraft.data.SkinItem
+import com.honey.skinconstructorminecraft.model.AppCategory
+import com.honey.domain.model.SkinItem
 import com.honey.skinconstructorminecraft.ui.theme.*
 import com.honey.skinconstructorminecraft.ui.theme.Gray30
 import com.honey.skinconstructorminecraft.ui.theme.Gray60
 import com.honey.skinconstructorminecraft.ui.theme.Gray70
-import com.honey.skinconstructorminecraft.ui.theme.Green30
 import com.honey.skinconstructorminecraft.ui.theme.Green40
 
 @Composable
@@ -29,10 +27,10 @@ fun ScmcBottomMainMenu(
     modifier: Modifier = Modifier,
     draggableItemModifier: Modifier,
     itemsList: List<SkinItem>,
-    selectedCategory: Category,
+    selectedCategory: AppCategory,
     selectedItem: SkinItem?,
     onSelectItem: (item: SkinItem) -> Unit,
-    onSelectCategory: (category: Category) -> Unit
+    onSelectCategory: (category: AppCategory) -> Unit
 ) {
 
 
@@ -74,7 +72,7 @@ fun ScmcBottomMainMenu(
                     for (i in itemsList) {
                         item {
                             ScmcItem(
-                                item = SkinItem(skinItemId = i.skinItemId),
+                                item = i,
                                 selectedItem = selectedItem,
                                 onItemSelect = onSelectItem
                             )
@@ -89,15 +87,15 @@ fun ScmcBottomMainMenu(
 @Composable
 fun ScmcTabLayout(
     modifier: Modifier = Modifier,
-    onTabClick: (category: Category) -> Unit,
-    selectedCategory: Category
+    onTabClick: (category: AppCategory) -> Unit,
+    selectedCategory: AppCategory
 ) {
     LazyRow(
         modifier = modifier
             .background(Gray20)
             .fillMaxWidth(),
         content = {
-            Category.values().forEach() { category ->
+            AppCategory.values().forEach() { category ->
                 item {
                     ScmcCategoryTab(
                         tabCategory = category,
@@ -112,9 +110,9 @@ fun ScmcTabLayout(
 
 @Composable
 fun ScmcCategoryTab(
-    onTabClick: (category: Category) -> Unit,
-    tabCategory: Category,
-    selectedCategory: Category
+    onTabClick: (category: AppCategory) -> Unit,
+    tabCategory: AppCategory,
+    selectedCategory: AppCategory
 ) {
     val selected = (selectedCategory == tabCategory)
     Box(

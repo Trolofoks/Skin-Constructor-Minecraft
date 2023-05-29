@@ -1,4 +1,4 @@
-package com.honey.skinconstructorminecraft.ui.app
+package com.honey.skinconstructorminecraft.ui.main
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -9,7 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.honey.skinconstructorminecraft.ui.app.navigation.TopLevelDestination
+import com.honey.skinconstructorminecraft.ui.main.navigation.TopLevelDestination
 import com.honey.skinconstructorminecraft.ui.screen.constructor.navigation.constructorRoute
 import com.honey.skinconstructorminecraft.ui.screen.greeting.navigation.greetingRoute
 import com.honey.skinconstructorminecraft.ui.screen.constructor.navigation.navigateToConstructor

@@ -1,4 +1,4 @@
-package com.honey.skinconstructorminecraft.ui.app.navigation
+package com.honey.skinconstructorminecraft.ui.main.navigation
 
 import com.honey.skinconstructorminecraft.R
 

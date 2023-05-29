@@ -1,12 +1,10 @@
 package com.honey.skinconstructorminecraft.ui.screen.constructor.view
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -14,22 +12,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.honey.skinconstructorminecraft.R
-import com.honey.skinconstructorminecraft.data.Category
-import com.honey.skinconstructorminecraft.data.SkinItem
+import com.honey.skinconstructorminecraft.model.AppCategory
+import com.honey.domain.model.SkinItem
 import com.honey.skinconstructorminecraft.ui.part.ScmcBottomMainMenu
-import com.honey.skinconstructorminecraft.ui.part.ScmcButton
 import com.honey.skinconstructorminecraft.ui.screen.constructor.contract.ConstructorState
 
 @Composable
 fun ConstructorMainView(
     state: ConstructorState.Showing,
     onSelectItem: (item: SkinItem) -> Unit,
-    onSelectCategory: (category: Category) -> Unit
+    onSelectCategory: (category: AppCategory) -> Unit
 ) {
     val bottomMenuWeight = remember { mutableStateOf(0.4f)}
 

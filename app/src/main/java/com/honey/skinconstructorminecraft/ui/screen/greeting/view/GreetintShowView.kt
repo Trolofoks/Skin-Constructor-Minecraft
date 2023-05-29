@@ -1,6 +1,5 @@
 package com.honey.skinconstructorminecraft.ui.screen.greeting.view
 
-import android.icu.util.UniversalTimeScale
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

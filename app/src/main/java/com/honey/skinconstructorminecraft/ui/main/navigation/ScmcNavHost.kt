@@ -1,4 +1,4 @@
-package com.honey.skinconstructorminecraft.ui.app.navigation
+package com.honey.skinconstructorminecraft.ui.main.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

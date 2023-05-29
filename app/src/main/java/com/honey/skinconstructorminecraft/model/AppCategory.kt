@@ -1,12 +1,11 @@
-package com.honey.skinconstructorminecraft.data
+package com.honey.skinconstructorminecraft.model
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
+
 import com.honey.skinconstructorminecraft.R
 
-enum class Category(
-    @DrawableRes val imageId: Int,
-    @StringRes val textId: Int
+enum class AppCategory(
+     val imageId: Int,
+     val textId: Int
     ) {
 
     HEAD(

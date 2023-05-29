@@ -1,4 +1,4 @@
-package com.honey.skinconstructorminecraft.ui.app
+package com.honey.skinconstructorminecraft.ui.main
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.honey.skinconstructorminecraft.R
-import com.honey.skinconstructorminecraft.ui.app.navigation.ScmcNavHost
-import com.honey.skinconstructorminecraft.ui.app.navigation.TopLevelDestination
+import com.honey.skinconstructorminecraft.ui.main.navigation.ScmcNavHost
+import com.honey.skinconstructorminecraft.ui.main.navigation.TopLevelDestination
 import com.honey.skinconstructorminecraft.ui.part.ScmcDropDownMenu
 import com.honey.skinconstructorminecraft.ui.part.ScmcTopAppBar
 

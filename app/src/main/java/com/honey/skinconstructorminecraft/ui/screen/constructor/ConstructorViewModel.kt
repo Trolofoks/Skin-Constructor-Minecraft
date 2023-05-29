@@ -1,9 +1,8 @@
 package com.honey.skinconstructorminecraft.ui.screen.constructor
 
-import androidx.lifecycle.ViewModel
 import com.honey.skinconstructorminecraft.base.BaseViewModel
-import com.honey.skinconstructorminecraft.data.Category
-import com.honey.skinconstructorminecraft.data.SkinItem
+import com.honey.skinconstructorminecraft.model.AppCategory
+import com.honey.domain.model.SkinItem
 import com.honey.skinconstructorminecraft.ui.screen.constructor.contract.ConstructorEffect
 import com.honey.skinconstructorminecraft.ui.screen.constructor.contract.ConstructorEvent
 import com.honey.skinconstructorminecraft.ui.screen.constructor.contract.ConstructorState
@@ -14,7 +13,7 @@ class ConstructorViewModel : BaseViewModel<ConstructorEvent, ConstructorState, C
     init {
         viewState = ConstructorState.Showing(
             items = emptyList(),
-            selectedCategory = Category.HEAD,
+            selectedCategory = AppCategory.HEAD,
             selectedItem = null
         )
     }
@@ -42,7 +41,7 @@ class ConstructorViewModel : BaseViewModel<ConstructorEvent, ConstructorState, C
         viewState = state.copy(selectedItem = item)
     }
 
-    private fun performSelectCategory(category: Category, state: ConstructorState.Showing){
+    private fun performSelectCategory(category: AppCategory, state: ConstructorState.Showing){
         viewState = state.copy(selectedCategory = category)
         effect = ConstructorEffect.OnTitleSet(category.textId)
     }
