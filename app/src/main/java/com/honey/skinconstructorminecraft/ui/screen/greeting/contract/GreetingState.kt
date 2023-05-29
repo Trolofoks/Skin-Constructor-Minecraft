@@ -4,4 +4,5 @@ import com.honey.skinconstructorminecraft.base.ViewState
 
 sealed class GreetingState : ViewState {
     object Loading: GreetingState()
+    object Show: GreetingState()
 }

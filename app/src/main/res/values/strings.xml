@@ -2,4 +2,11 @@
     <string name="app_name">Skin Constructor Minecraft</string>
 
     <string name="constructor">Constructor</string>
+    <string name="greeting">Greeting</string>
+    <string name="loading">Loading</string>
+
+    <!--Category Name-->
+    <string name="head">Head</string>
+    <string name="body">Body</string>
+    <string name="legs">Legs</string>
 </resources>

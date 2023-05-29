@@ -6,12 +6,15 @@ import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun GreetingRoute(
-    onConstructorClick: () -> Unit
+    onConstructorClick: () -> Unit,
+    onTitleSet: (stringId: Int) -> Unit
 ) {
     val viewModel = getViewModel<GreetingViewModel>()
     GreetingScreen(
         state = viewModel.getViewState().collectAsState(),
+        effect = viewModel.getEffect(),
         onEventSend = {event -> viewModel.obtainEvent(event)},
-        onConstructorClick = onConstructorClick
+        onConstructorClick = onConstructorClick,
+        onTitleSet = onTitleSet
     )
 }

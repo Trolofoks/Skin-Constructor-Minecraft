@@ -3,17 +3,16 @@ package com.honey.skinconstructorminecraft.ui.app
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.honey.skinconstructorminecraft.ui.navigation.TopLevelDestination
-import com.honey.skinconstructorminecraft.ui.navigation.navigator.constructorRoute
+import com.honey.skinconstructorminecraft.ui.app.navigation.TopLevelDestination
+import com.honey.skinconstructorminecraft.ui.screen.constructor.navigation.constructorRoute
 import com.honey.skinconstructorminecraft.ui.screen.greeting.navigation.greetingRoute
-import com.honey.skinconstructorminecraft.ui.navigation.navigator.navigateToConstructor
+import com.honey.skinconstructorminecraft.ui.screen.constructor.navigation.navigateToConstructor
 import com.honey.skinconstructorminecraft.ui.screen.greeting.navigation.navigateToGreeting
 import kotlinx.coroutines.CoroutineScope
 
@@ -32,6 +31,8 @@ class ScmcAppState(
     val coroutineScope: CoroutineScope,
     val navController: NavHostController
 ) {
+
+
     val currentDestination: NavDestination?
         @Composable get() = navController.currentBackStackEntryAsState().value?.destination
 

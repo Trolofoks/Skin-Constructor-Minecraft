@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,47 +17,63 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.honey.skinconstructorminecraft.data.Category
 import com.honey.skinconstructorminecraft.data.SkinItem
-import com.honey.skinconstructorminecraft.ui.theme.Gray10
+import com.honey.skinconstructorminecraft.ui.theme.*
 import com.honey.skinconstructorminecraft.ui.theme.Gray30
-import com.honey.skinconstructorminecraft.ui.theme.Gray50
+import com.honey.skinconstructorminecraft.ui.theme.Gray60
+import com.honey.skinconstructorminecraft.ui.theme.Gray70
 import com.honey.skinconstructorminecraft.ui.theme.Green30
 import com.honey.skinconstructorminecraft.ui.theme.Green40
 
 @Composable
-fun BottomMainMenu(
+fun ScmcBottomMainMenu(
     modifier: Modifier = Modifier,
+    draggableItemModifier: Modifier,
     itemsList: List<SkinItem>,
     selectedCategory: Category,
     selectedItem: SkinItem?,
     onSelectItem: (item: SkinItem) -> Unit,
     onSelectCategory: (category: Category) -> Unit
 ) {
-//    val selectedCategory = remember { mutableStateOf<Category>(Category.HEAD) }
-//    val selectedItem = remember{ mutableStateOf<SkinItem?>(null)}
 
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(Color.Black)
+
+    ScmcFrame(
+        modifier = modifier,
+        fillMaxSize = true
     ) {
-        Column(
-            modifier = Modifier
-                .padding(5.dp)
-                .fillMaxSize()
-                .background(Gray10)
-        ) {
-            TabLayout(
-                modifier = Modifier.padding(bottom = 5.dp),
-                onTabClick = onSelectCategory,
-                selectedCategory = selectedCategory
-            )
+        Column {
+            Box {
+                ScmcTabLayout(
+                    modifier = Modifier,
+                    onTabClick = onSelectCategory,
+                    selectedCategory = selectedCategory
+                )
+                Box(
+                    modifier = draggableItemModifier
+                        .padding(top = 5.dp)
+                        .height(5.dp)
+                        .width(50.dp)
+                        .align(Alignment.TopCenter)
+                        .background(
+                            Gray70
+                        )
+                )
+            }
+            Box(modifier = Modifier
+                .fillMaxWidth()
+                .height(5.dp)
+                .background(Color.Black))
+            Box(modifier = Modifier
+                .fillMaxWidth()
+                .height(5.dp)
+                .background(Gray30)
+                .padding(bottom = 5.dp))
             LazyVerticalGrid(
-                columns = GridCells.Fixed(LocalConfiguration.current.screenWidthDp/96),
+                columns = GridCells.Fixed(LocalConfiguration.current.screenWidthDp / 96),
                 content = {
                     //TODO Add real lists
-                    for (i in itemsList){
+                    for (i in itemsList) {
                         item {
-                            Item(
+                            ScmcItem(
                                 item = SkinItem(skinItemId = i.skinItemId),
                                 selectedItem = selectedItem,
                                 onItemSelect = onSelectItem
@@ -71,19 +87,19 @@ fun BottomMainMenu(
 }
 
 @Composable
-fun TabLayout(
+fun ScmcTabLayout(
     modifier: Modifier = Modifier,
     onTabClick: (category: Category) -> Unit,
     selectedCategory: Category
 ) {
     LazyRow(
         modifier = modifier
-            .background(Green30)
+            .background(Gray20)
             .fillMaxWidth(),
         content = {
             Category.values().forEach() { category ->
                 item {
-                    CategoryTab(
+                    ScmcCategoryTab(
                         tabCategory = category,
                         onTabClick = onTabClick,
                         selectedCategory = selectedCategory
@@ -95,7 +111,7 @@ fun TabLayout(
 }
 
 @Composable
-fun CategoryTab(
+fun ScmcCategoryTab(
     onTabClick: (category: Category) -> Unit,
     tabCategory: Category,
     selectedCategory: Category
@@ -103,7 +119,7 @@ fun CategoryTab(
     val selected = (selectedCategory == tabCategory)
     Box(
         modifier = Modifier
-            .background(if (selected) Green40 else Green30)
+            .background(if (selected) Gray30 else Gray20)
             .size(64.dp)
             .clickable {
                 onTabClick.invoke(tabCategory)
@@ -120,17 +136,17 @@ fun CategoryTab(
 }
 
 @Composable
-fun Item(
+fun ScmcItem(
     item: SkinItem,
-    selectedItem : SkinItem?,
-    onItemSelect : (item: SkinItem)-> Unit
+    selectedItem: SkinItem?,
+    onItemSelect: (item: SkinItem) -> Unit
 ) {
     val selected = (item == selectedItem)
     Box(
         modifier = Modifier
             .size(96.dp)
             .padding(5.dp)
-            .background(if (selected) Green40 else Gray50)
+            .background(if (selected) Green40 else Gray60)
             .clickable { onItemSelect.invoke(item) }
     ) {
         Box(

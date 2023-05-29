@@ -11,16 +11,16 @@ enum class Category(
 
     HEAD(
         imageId = R.drawable.ic_launcher_foreground,
-        textId = R.string.app_name
+        textId = R.string.head
     ),
 
     BODY(
         imageId = R.drawable.ic_launcher_foreground,
-        textId = R.string.app_name
+        textId = R.string.body
     ),
 
     LEGS(
     imageId = R.drawable.ic_launcher_foreground,
-    textId = R.string.app_name
+    textId = R.string.legs
     )
 }

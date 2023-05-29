@@ -12,8 +12,15 @@ fun NavController.navigateToGreeting(navOptions: NavOptions? = null){
     this.navigate(greetingRoute)
 }
 
-fun NavGraphBuilder.greetingScreen(onConstructorClick: () -> Unit){
+fun NavGraphBuilder.greetingScreen(
+    onConstructorClick: () -> Unit,
+    onTitleSet: (stringId: Int) -> Unit
+){
     composable(route = greetingRoute){
-        GreetingRoute (onConstructorClick = onConstructorClick)
+        GreetingRoute (
+            onConstructorClick = onConstructorClick,
+            onTitleSet = onTitleSet
+
+        )
     }
 }
